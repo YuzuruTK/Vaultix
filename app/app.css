@@ -324,6 +324,36 @@ td.num {
   color: var(--text-2);
 }
 
+.badge-saida-fornecedor {
+  background: color-mix(in oklab, #b45309 20%, var(--surface));
+  color: #b45309;
+}
+
+.badge-saida-folha {
+  background: color-mix(in oklab, #0d6f6b 20%, var(--surface));
+  color: #0d6f6b;
+}
+
+.badge-saida-imposto {
+  background: color-mix(in oklab, #a21caf 18%, var(--surface));
+  color: #a21caf;
+}
+
+.badge-saida-infraestrutura {
+  background: color-mix(in oklab, #0369a1 20%, var(--surface));
+  color: #0369a1;
+}
+
+.badge-saida-marketing {
+  background: color-mix(in oklab, #c2410c 20%, var(--surface));
+  color: #c2410c;
+}
+
+.badge-saida-outro {
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+
 .btn-icon {
   font: inherit;
   font-size: 0.8rem;
@@ -372,6 +402,11 @@ td.num {
   background: var(--accent);
   opacity: 0.85;
   min-width: 2px;
+}
+
+.chart-row__fill--saida {
+  background: color-mix(in oklab, var(--danger) 75%, var(--accent));
+  opacity: 0.9;
 }
 
 .chart-row__val {
