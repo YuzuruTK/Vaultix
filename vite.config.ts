@@ -12,12 +12,8 @@ export default defineConfig({
         v3_singleFetch: true,
         v3_throwAbortReason: true,
       },
+      ssr: false,
     }),
     tsconfigPaths(),
   ],
-  ssr: {
-    resolve: {
-      externalConditions: ["workerd", "worker"],
-    },
-  },
 });
