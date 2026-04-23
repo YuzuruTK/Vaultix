@@ -60,6 +60,38 @@ npm run typecheck
 ```
 Validates TypeScript types.
 
+## Deployment
+
+### Cloudflare Pages (Recommended)
+
+Deploy to Cloudflare Pages for free global hosting:
+
+1. **Connect Your Repository**:
+   - Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+   - Create a new Pages project
+   - Connect your Git repository
+
+2. **Configure Build Settings**:
+   - Build command: `npm run build`
+   - Build output directory: `build/client`
+
+3. **Deploy**:
+   - Your app will be live at `yourproject.pages.dev`
+   - Automatic deployments on every push to main branch
+
+For detailed setup instructions, see [PAGES_DEPLOYMENT.md](./PAGES_DEPLOYMENT.md)
+
+### Local Pages Testing
+
+To test Pages locally before deploying:
+
+```bash
+npm run build
+npx wrangler pages dev ./build/client
+```
+
+This starts a local development server that mimics Cloudflare Pages.
+
 ## Project Structure
 
 ```
