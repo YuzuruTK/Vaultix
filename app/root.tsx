@@ -28,8 +28,9 @@ export const links: LinksFunction = () => [
 ];
 
 export const meta: MetaFunction = () => [
-  { title: "Caixa App" },
-  { name: "description", content: "Controle de entradas e saídas de caixa" },
+  { title: "Vaultix" },
+  { name: "description", content: "Track income, manage expenses, and analyze your financial data" },
+  { name: "color-scheme", content: "light dark" },
 ];
 
 export default function App() {
@@ -44,7 +45,7 @@ export default function App() {
       <body>
         <header className="site-header">
           <div className="site-header__inner">
-            <span className="site-logo">Caixa</span>
+            <span className="site-logo">Vaultix</span>
             <nav className="site-nav">
               <NavLink
                 to="/entradas"

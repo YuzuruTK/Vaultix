@@ -14,7 +14,7 @@ import {
   toCSV,
 } from "~/lib/csv";
 
-export const meta: MetaFunction = () => [{ title: "Entradas — Caixa App" }];
+export const meta: MetaFunction = () => [{ title: "Entradas — Vaultix" }];
 
 function monthKeyFromData(data: string): string {
   return data.slice(0, 7);
@@ -153,7 +153,7 @@ function EntradasInner() {
   );
 
   return (
-    <>
+    <div data-page="entradas">
       <h1 className="page-title">Entradas de caixa</h1>
       <p className="page-lead">
         Registre vendas e recebimentos, filtre por período e categoria, e
@@ -392,7 +392,7 @@ function EntradasInner() {
           </table>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

@@ -13,7 +13,7 @@ import {
   toCSVSaidas,
 } from "~/lib/csv-saidas";
 
-export const meta: MetaFunction = () => [{ title: "Saídas — Caixa App" }];
+export const meta: MetaFunction = () => [{ title: "Saídas — Vaultix" }];
 
 function monthKeyFromData(data: string): string {
   return data.slice(0, 7);
@@ -152,7 +152,7 @@ function SaidasInner() {
   );
 
   return (
-    <>
+    <div data-page="saidas">
       <h1 className="page-title">Saídas de caixa</h1>
       <p className="page-lead">
         Registre despesas e pagamentos, filtre por período e categoria, e use
@@ -399,7 +399,7 @@ function SaidasInner() {
           </table>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
