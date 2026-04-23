@@ -14,6 +14,9 @@
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
   --shadow: 0 1px 2px rgba(20, 18, 14, 0.06), 0 8px 24px rgba(20, 18, 14, 0.06);
+  --theme-accent: #14120e;
+  --theme-accent-light: rgba(31, 122, 74, 0.12);
+  --theme-primary: #1f7a4a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +31,39 @@
     --accent: #f6f3ec;
     --danger: #f08080;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 28px rgba(0, 0, 0, 0.45);
+    --theme-accent: #f6f3ec;
+    --theme-accent-light: rgba(31, 122, 74, 0.25);
+    --theme-primary: #4ade80;
+  }
+}
+
+/* Entradas (Income) - Green Theme */
+[data-page="entradas"] {
+  --theme-accent: #0d5c3a;
+  --theme-primary: #0d5c3a;
+  --theme-accent-light: rgba(13, 92, 58, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-page="entradas"] {
+    --theme-accent: #4ade80;
+    --theme-primary: #4ade80;
+    --theme-accent-light: rgba(74, 222, 128, 0.15);
+  }
+}
+
+/* Saidas (Expenses) - Red/Orange Theme */
+[data-page="saidas"] {
+  --theme-accent: #8b3a00;
+  --theme-primary: #8b3a00;
+  --theme-accent-light: rgba(139, 58, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-page="saidas"] {
+    --theme-accent: #f97316;
+    --theme-primary: #f97316;
+    --theme-accent-light: rgba(249, 115, 22, 0.15);
   }
 }
 
@@ -232,7 +268,7 @@ input:focus {
 }
 
 .btn--primary {
-  background: var(--accent);
+  background: var(--theme-accent);
   color: var(--bg);
   border-color: transparent;
 }
@@ -399,13 +435,13 @@ td.num {
 .chart-row__fill {
   height: 100%;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--theme-accent);
   opacity: 0.85;
   min-width: 2px;
 }
 
 .chart-row__fill--saida {
-  background: color-mix(in oklab, var(--danger) 75%, var(--accent));
+  background: color-mix(in oklab, var(--theme-accent) 75%, var(--accent));
   opacity: 0.9;
 }
 
