@@ -15,4 +15,9 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  ssr: {
+    resolve: {
+      externalConditions: ["workerd", "worker"],
+    },
+  },
 });
