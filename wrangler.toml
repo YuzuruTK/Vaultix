@@ -1,0 +1,16 @@
+name = "vaultix"
+type = "javascript"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+command = "npm run build"
+cwd = "."
+watch_paths = ["app/**/*.tsx", "app/**/*.ts", "app/**/*.css"]
+
+[env.production]
+name = "vaultix-production"
+
+[[env.production.routes]]
+pattern = "yourdomain.com/*"
+zone_name = "yourdomain.com"
