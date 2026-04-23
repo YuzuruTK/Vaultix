@@ -36,3 +36,5 @@ export default async function handleRequest(
     status: responseStatusCode,
   });
 }
+
+export const onRequest = handleRequest;
