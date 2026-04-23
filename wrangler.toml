@@ -1,4 +1,4 @@
 name = "vaultix"
-pages_build_output_dir = "build/client"
-compatibility_date = "2024-09-23"
+compatibility_date = "2025-07-18"
 compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "./build/client"

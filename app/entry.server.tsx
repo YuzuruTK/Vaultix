@@ -1,3 +1,4 @@
+import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToReadableStream } from "react-dom/server";
@@ -8,31 +9,37 @@ export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: any
+  remixContext: EntryContext,
+  _loadContext: AppLoadContext
 ) {
+  let shellRendered = false;
   const userAgent = request.headers.get("user-agent");
-  const isBotRequest = isbot(userAgent);
+  const readyOption = isbot(userAgent ?? "") || remixContext.isSpaMode
+    ? "onAllReady"
+    : "onShellReady";
 
   const body = await renderToReadableStream(
-    <RemixServer context={remixContext} url={request.url} />,
+    <RemixServer context={remixContext} url={request.url} abortDelay={ABORT_DELAY} />,
     {
-      signal: AbortSignal.timeout(ABORT_DELAY),
+      [readyOption]() {
+        shellRendered = true;
+      },
       onError(error: unknown) {
-        console.error(error);
         responseStatusCode = 500;
+        if (shellRendered) {
+          console.error(error);
+        }
       },
     }
   );
 
-  if (isBotRequest) {
+  if (isbot(userAgent ?? "")) {
     await body.allReady;
   }
 
+  responseHeaders.set("Content-Type", "text/html");
   return new Response(body, {
-    headers: {
-      ...Object.fromEntries(responseHeaders),
-      "Content-Type": "text/html",
-    },
+    headers: responseHeaders,
     status: responseStatusCode,
   });
 }
