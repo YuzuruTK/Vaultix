@@ -42,6 +42,18 @@ npm run build
 ```
 Creates an optimized production build in the `build/` directory.
 
+### Run With Cloudflare Pages Runtime
+```bash
+npm start
+```
+Runs the app using `wrangler pages dev`.
+
+### Deploy to Cloudflare Pages
+```bash
+npx wrangler pages deploy ./build/client
+```
+Deploys the built client output and functions.
+
 ### Type Checking
 ```bash
 npm run typecheck
@@ -88,9 +100,13 @@ app/
   lib/              # Utilities (CSV parsing, formatting)
   routes/           # Page routes (Entradas, Saídas, Index)
   entry.client.tsx  # Client entry point
-  entry.server.tsx  # Server entry point
+  entry.server.tsx  # Cloudflare-compatible server entry point
   root.tsx          # Root layout component
   app.css          # Styles
+functions/
+  [[path]].ts      # Cloudflare Pages function entry
+server.ts          # Pages handler bootstrap
+wrangler.toml      # Cloudflare Pages config
 ```
 
 ## Usage
