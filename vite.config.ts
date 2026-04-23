@@ -15,12 +15,7 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
-  build: {
-    manifest: true,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      },
-    },
+  ssr: {
+    external: ["react", "react-dom"],
   },
 });
